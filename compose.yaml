@@ -1,0 +1,50 @@
+networks:
+  rc_network:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 192.168.0.0/24
+services:
+  node0:
+    command: --id 0 --out 1 2 3 4 --in 1 2 3 5 --x0 0
+    container_name: rc_node_0
+    image: rc_demo
+    networks:
+      rc_network:
+        ipv4_address: 192.168.0.10
+  node1:
+    command: --id 1 --out 0 --in 0 --x0 1
+    container_name: rc_node_1
+    image: rc_demo
+    networks:
+      rc_network:
+        ipv4_address: 192.168.0.11
+  node2:
+    command: --id 2 --out 0 --in 0 --x0 2
+    container_name: rc_node_2
+    image: rc_demo
+    networks:
+      rc_network:
+        ipv4_address: 192.168.0.12
+  node3:
+    command: --id 3 --out 0 --in 0 --x0 3
+    container_name: rc_node_3
+    image: rc_demo
+    networks:
+      rc_network:
+        ipv4_address: 192.168.0.13
+  node4:
+    command: --id 4 --out 5 --in 0 --x0 4
+    container_name: rc_node_4
+    image: rc_demo
+    networks:
+      rc_network:
+        ipv4_address: 192.168.0.14
+  node5:
+    command: --id 5 --out 0 --in 4 --x0 5
+    container_name: rc_node_5
+    image: rc_demo
+    networks:
+      rc_network:
+        ipv4_address: 192.168.0.15
+version: '2'

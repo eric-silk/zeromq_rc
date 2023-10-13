@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "zeromq-rc"
+version = "0.1.0"
+description = "Ratio Consensus demo using ZeroMQ"
+authors = ["Eric Silk <eric.silk@ericsilk.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyzmq = "^25.1.1"
+networkx = "^3.1"
+pyyaml = "^6.0.1"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.9.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

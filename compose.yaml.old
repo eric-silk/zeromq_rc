@@ -1,0 +1,23 @@
+version: '2'
+services:
+  node1:
+    image: rc_demo
+    container_name: rc_node_1
+    command: --id 1 --out 2 --in 2 --x0 10
+    networks:
+      rc_network:
+        ipv4_address: "192.168.0.11"
+  node2:
+    image: rc_demo
+    container_name: rc_node_2
+    command: --id 2 --out 1 --in 1 --x0 1
+    networks:
+      rc_network:
+        ipv4_address: "192.168.0.12"
+
+networks:
+  rc_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.0.0/24
